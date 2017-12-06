@@ -1,8 +1,29 @@
+
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
+import { render } from 'react-dom';
+import { BrowserRouter, Match, Miss } from 'react-router';
+
+import Login from './components/Login';
+import App from './components/App';
+import NotFound from './components/NotFound';
+
 import registerServiceWorker from './registerServiceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+import './css/index.css'
+
+const Root = () => {
+  return(
+    <BrowserRouter>
+      <div>
+        <Match exactly pattern="/" component={Login}/>
+        <Match pattern="/top" component={App} />
+        <Miss component={NotFound} />
+      </div>
+
+    </BrowserRouter>
+  )
+
+}
+
+render(<Root/>, document.getElementById('root'));
 registerServiceWorker();
