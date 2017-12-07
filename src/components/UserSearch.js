@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 
 class UserSearch extends React.Component {
 
@@ -6,6 +7,8 @@ class UserSearch extends React.Component {
   handleSearch(e){
     e.preventDefault();
     console.log(this.search.value);
+
+
   }
 
   render() {
