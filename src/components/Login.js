@@ -17,7 +17,7 @@ class Login extends React.Component {
       <div className="login-main">
         <h1>Login</h1>
         <form action="" onSubmit={this.handleLogin}>
-          <button><a href={`https://api.instagram.com/oauth/authorize/?client_id=${config.instaCred.client_id}&redirect_uri=http://localhost:3000/top&response_type=token&scope=likes+public_content`}>Login with Instagram</a></button>
+          <button><a href={`https://api.instagram.com/oauth/authorize/?client_id=${config.instaCred.client_id}&redirect_uri=http://localhost:3000/top/&response_type=token&scope=likes+public_content`}>Login with Instagram</a></button>
         </form>
       </div>
     );
