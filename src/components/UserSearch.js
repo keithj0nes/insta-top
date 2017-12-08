@@ -16,15 +16,25 @@ class UserSearch extends React.Component {
 
       axios.get(`https://api.instagram.com/v1/users/search?q=${search}&access_token=${token}`)
         .then((res)=>{
-          console.log(res.data, "get res");
+          // console.log(res.data, "get res");
           const userId = res.data.data[0].id
           axios.get(`https://api.instagram.com/v1/users/${userId}/media/recent/?access_token=${token}`)
             .then((res2)=>{
-              console.log(res2.data);
+              // console.log(res2.data);
+
+              const newSearchedUser = {
+                main: res.data.data[0],
+                recent: res2.data.data
+              }
+
+              this.props.searchUser(newSearchedUser);
             })
             .catch((err)=>{
               console.log(err, "second err");
             })
+
+
+
         })
         .catch((err)=>{
           console.log(err, "loggin err");
@@ -33,6 +43,7 @@ class UserSearch extends React.Component {
       this.searchForm.reset();
     } else {
       console.log("nothing searched!");
+
     }
 
   }

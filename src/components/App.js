@@ -7,8 +7,12 @@ class App extends Component {
 
   constructor(){
     super();
+
+    this.searchUser = this.searchUser.bind(this);
+
     this.state = {
-      instaToken: ""
+      instaToken: "",
+      user: {}
     }
   }
 
@@ -20,11 +24,17 @@ class App extends Component {
   componentDidMount(){
     console.log(this.state);
   }
+
+  searchUser(user){
+    this.setState({user})
+  }
+
+
   render() {
     return (
       <div className="App">
-        <UserSearch token={this.state.instaToken} />
-        <SearchResults token={this.state.instaToken} />
+        <UserSearch token={this.state.instaToken} searchUser={this.searchUser}/>
+        <SearchResults token={this.state.instaToken} user={this.state.user}/>
       </div>
     );
   }
