@@ -13,8 +13,13 @@ class UserSearch extends React.Component {
       const search = this.search.value;
 
 
+      // const newStr = window.location.href.split(".")[1] + "." + window.location.href.split(".")[2];
+      const newStr = window.location.href.split("=")[1]
 
-
+      console.log(newStr);
+      axios.get(`https://api.instagram.com/v1/users/search?q=${search}&access_token=${newStr}`).then((res)=>{
+        console.log(res, "get res");
+      })
       this.searchForm.reset();
     } else {
       console.log("nothing searched!");
@@ -27,9 +32,11 @@ class UserSearch extends React.Component {
     const newStr = str.split("=")[1]
     console.log(newStr);
 
-    axios.get(`https://api.instagram.com/v1/users/self/?access_token=${newStr}`).then((res)=>{
-      console.log(res, "loggin res");
-    })
+    const userId = newStr.split(".")[0]
+    console.log(userId);
+    // axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${newStr}`).then((res)=>{
+    //   console.log(res, "loggin res");
+    // })
   }
 
   render() {
