@@ -11,15 +11,25 @@ class UserSearch extends React.Component {
       console.log("searched!");
       console.log(this.search.value);
       const search = this.search.value;
+      const token = this.props.token
 
 
-      // const newStr = window.location.href.split(".")[1] + "." + window.location.href.split(".")[2];
-      const newStr = window.location.href.split("=")[1]
+      axios.get(`https://api.instagram.com/v1/users/search?q=${search}&access_token=${token}`)
+        .then((res)=>{
+          console.log(res.data, "get res");
+          const userId = res.data.data[0].id
+          axios.get(`https://api.instagram.com/v1/users/${userId}/media/recent/?access_token=${token}`)
+            .then((res2)=>{
+              console.log(res2.data);
+            })
+            .catch((err)=>{
+              console.log(err, "second err");
+            })
+        })
+        .catch((err)=>{
+          console.log(err, "loggin err");
+        })
 
-      console.log(newStr);
-      axios.get(`https://api.instagram.com/v1/users/search?q=${search}&access_token=${newStr}`).then((res)=>{
-        console.log(res, "get res");
-      })
       this.searchForm.reset();
     } else {
       console.log("nothing searched!");
@@ -27,24 +37,7 @@ class UserSearch extends React.Component {
 
   }
 
-  splitStr(str){
-    // const newStr = str.split(".")[1] + "." + str.split(".")[2];
-    const newStr = str.split("=")[1]
-    console.log(newStr);
-
-    const userId = newStr.split(".")[0]
-    console.log(userId);
-    // axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${newStr}`).then((res)=>{
-    //   console.log(res, "loggin res");
-    // })
-  }
-
   render() {
-
-    console.log(window.location.href);
-
-    this.splitStr(window.location.href);
-
 
     return (
       <form ref={(input)=>this.searchForm = input }className="user-search" onSubmit={this.handleSearch.bind(this)}>
