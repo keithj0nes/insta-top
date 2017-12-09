@@ -20,11 +20,14 @@ class UserSearch extends React.Component {
 
             axios.get(`https://api.instagram.com/v1/users/${userId}/media/recent/?access_token=${token}`)
               .then((res2)=>{
-                // console.log(res2.data);
+
+                let results = res2.data.data.sort((a,b)=>{
+                  return b.likes.count-a.likes.count
+                })
 
                 const newSearchedUser = {
                   main: res.data.data[0],
-                  recent: res2.data.data
+                  recent: results
                 }
 
                 this.props.searchUser(newSearchedUser);

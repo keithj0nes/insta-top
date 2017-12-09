@@ -23,11 +23,8 @@ class App extends Component {
       axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${instaToken}`).then((res2)=>{
         // console.log(res2.data, "TWO RESSSS");
 
-        var results = res2.data.data.sort((a,b)=>{
-          // console.log(a);
-          // console.log(b);
-          // arrrr.push( a.likes.count-b.likes.count)
-          return a.likes.count-b.likes.count
+        let results = res2.data.data.sort((a,b)=>{
+          return b.likes.count-a.likes.count;
         })
 
         // console.log(results, "logging arrrr");
