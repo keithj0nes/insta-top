@@ -16,13 +16,10 @@ class App extends Component {
 
   componentWillMount(){
     const instaToken = window.location.href.split("=")[1]
-
-    axios.get(`https://api.instagram.com/v1/users/self/?access_token=${instaToken}`).then((res)=>{
+    axios.get(`https://api.instagram.com/v1/users/self/?access_token=${instaToken}`).then((res) => {
       // console.log(res.data, "self RESSSS");
-
-      axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${instaToken}`).then((res2)=>{
+      axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${instaToken}`).then((res2) => {
         // console.log(res2.data, "TWO RESSSS");
-
         let results = res2.data.data.sort((a,b)=>{
           return b.likes.count-a.likes.count;
         })

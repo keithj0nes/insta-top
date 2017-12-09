@@ -47,9 +47,7 @@ class UserSearch extends React.Component {
       this.searchForm.reset();
     } else {
       console.log("nothing searched!");
-
     }
-
   }
 
   render() {

@@ -2,10 +2,8 @@ import React from 'react';
 import InstaPost from './InstaPost';
 
 class SearchResults extends React.Component {
-
   constructor(){
     super();
-
     this.resultCount = this.resultCount.bind(this);
     this.resultOrder = this.resultOrder.bind(this);
 
@@ -26,8 +24,6 @@ class SearchResults extends React.Component {
           <img src={details.main.profile_picture} alt={details.main.full_name}/>
           <h2>{details.main.username}</h2>
 
-
-
           {this.state.order === "desc" ? this.props.user.recent.slice(0, this.state.count).map((item, index)=>{
             // console.log(this.state.order, "Top Likes");
             return <InstaPost key={item.id} details={item} />
@@ -37,32 +33,22 @@ class SearchResults extends React.Component {
            })}
         </div>
       )
-
     }
-
     return <h1>Loading...</h1>
   }
 
 
   resultCount(e){
     e.preventDefault();
-
     console.log(this.results.value);
-
     const count = this.results.value;
-
     this.setState({count});
-
-
   }
 
   resultOrder(e){
     e.preventDefault();
-
     console.log(this.orderBy.value);
-
     const order = this.orderBy.value;
-
     this.setState({order})
   }
 
@@ -72,7 +58,6 @@ class SearchResults extends React.Component {
 
 
   render() {
-
     console.log(this.props.user, "SERACH RESULTS!!!!!!");
     return (
       <div className="search-results">
@@ -86,7 +71,6 @@ class SearchResults extends React.Component {
           <option value="desc">Top Likes</option>
           <option value="asc">Least Likes</option>
         </select>
-
 
         {this.renderSearch()}
       </div>
