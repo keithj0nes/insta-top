@@ -25,7 +25,9 @@ class App extends Component {
 
       axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${instaToken}`).then((res2)=>{
         // console.log(res2.data, "TWO RESSSS");
-        let arrrr = []
+
+
+
         var results = res2.data.data.sort((a,b)=>{
           // console.log(a);
           // console.log(b);
@@ -34,12 +36,13 @@ class App extends Component {
 
         })
 
-        console.log(results, "logging arrrr");
 
+        // console.log(results, "logging arrrr");
         const user = {
           main: res.data.data,
-          recent: res2.data.data
+          recent: results
         }
+
 
         this.setState({instaToken, user});
 

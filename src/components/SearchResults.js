@@ -12,6 +12,11 @@ class SearchResults extends React.Component {
         <div>
           <img src={details.main.profile_picture} alt={details.main.full_name}/>
           <h2>{details.main.username}</h2>
+
+          {this.props.user.recent.map((item, index)=>{
+            return <p key={item.id}>{item.caption.text} ---- likes: {item.likes.count}</p>
+
+          })}
         </div>
       )
 
