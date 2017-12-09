@@ -1,4 +1,5 @@
 import React from 'react';
+import InstaPost from './InstaPost';
 
 class SearchResults extends React.Component {
 
@@ -27,16 +28,13 @@ class SearchResults extends React.Component {
 
 
 
-          {  this.state.order === "desc" ? this.props.user.recent.slice(0, this.state.count).map((item, index)=>{
-            console.log(this.state.order, "Top Likes");
-              return <p key={item.id}>{item.caption.text} ---- likes: {item.likes.count}</p>
-
+          {this.state.order === "desc" ? this.props.user.recent.slice(0, this.state.count).map((item, index)=>{
+            // console.log(this.state.order, "Top Likes");
+            return <InstaPost key={item.id} details={item} />
             }) : this.props.user.recent.reverse().slice(0, this.state.count).map((item, index)=>{
-
-              console.log(this.state.order, "Least Likes");
-              return <p key={item.id}>{item.caption.text} ---- likes: {item.likes.count}</p>
-
-            })}
+            // console.log(this.state.order, "Least Likes");
+            return <InstaPost key={item.id} details={item} />
+           })}
         </div>
       )
 
@@ -48,7 +46,6 @@ class SearchResults extends React.Component {
 
   resultCount(e){
     e.preventDefault();
-    // console.log("submited ahha");
 
     console.log(this.results.value);
 
@@ -79,16 +76,16 @@ class SearchResults extends React.Component {
     console.log(this.props.user, "SERACH RESULTS!!!!!!");
     return (
       <div className="search-results">
-          <select ref={(input) => this.results = input} onChange={this.resultCount}>
-            <option value="5">5</option>
-            <option value="10">10</option>
-            <option value="20">20</option>
-          </select>
+        <select ref={(input) => this.results = input} onChange={this.resultCount}>
+          <option value="5">5</option>
+          <option value="10">10</option>
+          <option value="20">20</option>
+        </select>
 
-          <select ref={(input) => this.orderBy = input} onChange={this.resultOrder}>
-            <option value="desc">Top Likes</option>
-            <option value="asc">Least Likes</option>
-          </select>
+        <select ref={(input) => this.orderBy = input} onChange={this.resultOrder}>
+          <option value="desc">Top Likes</option>
+          <option value="asc">Least Likes</option>
+        </select>
 
 
         {this.renderSearch()}

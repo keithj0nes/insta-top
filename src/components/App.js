@@ -39,7 +39,7 @@ class App extends Component {
   }
 
   componentDidMount(){
-    console.log(this.state);
+    // console.log(this.state);
   }
 
   searchUser(user){
