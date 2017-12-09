@@ -8,32 +8,33 @@ class UserSearch extends React.Component {
     e.preventDefault();
 
     if(this.search.value){
-      console.log("searched!");
-      console.log(this.search.value);
       const search = this.search.value;
       const token = this.props.token
-
 
       axios.get(`https://api.instagram.com/v1/users/search?q=${search}&access_token=${token}`)
         .then((res)=>{
           // console.log(res.data, "get res");
-          const userId = res.data.data[0].id
-          axios.get(`https://api.instagram.com/v1/users/${userId}/media/recent/?access_token=${token}`)
-            .then((res2)=>{
-              // console.log(res2.data);
 
-              const newSearchedUser = {
-                main: res.data.data[0],
-                recent: res2.data.data
-              }
+          if(res.data.data[0]){
+            const userId = res.data.data[0].id
 
-              this.props.searchUser(newSearchedUser);
-            })
-            .catch((err)=>{
-              console.log(err, "second err");
-            })
+            axios.get(`https://api.instagram.com/v1/users/${userId}/media/recent/?access_token=${token}`)
+              .then((res2)=>{
+                // console.log(res2.data);
 
+                const newSearchedUser = {
+                  main: res.data.data[0],
+                  recent: res2.data.data
+                }
 
+                this.props.searchUser(newSearchedUser);
+              })
+              .catch((err)=>{
+                console.log(err, "second err");
+              })
+          } else {
+            this.props.searchUser({main:'none', recent: 'none'});
+          }
 
         })
         .catch((err)=>{

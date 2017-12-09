@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import UserSearch from './UserSearch';
 import SearchResults from './SearchResults';
+import axios from 'axios';
 import '../css/App.css';
 
 class App extends Component {
@@ -18,7 +19,36 @@ class App extends Component {
 
   componentWillMount(){
     const instaToken = window.location.href.split("=")[1]
-    this.setState({instaToken});
+
+    axios.get(`https://api.instagram.com/v1/users/self/?access_token=${instaToken}`).then((res)=>{
+      // console.log(res.data, "self RESSSS");
+
+      axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${instaToken}`).then((res2)=>{
+        // console.log(res2.data, "TWO RESSSS");
+        let arrrr = []
+        var results = res2.data.data.sort((a,b)=>{
+          // console.log(a);
+          // console.log(b);
+          // arrrr.push( a.likes.count-b.likes.count)
+          return a.likes.count-b.likes.count
+
+        })
+
+        console.log(results, "logging arrrr");
+
+        const user = {
+          main: res.data.data,
+          recent: res2.data.data
+        }
+
+        this.setState({instaToken, user});
+
+      })
+    })
+
+
+
+
   }
 
   componentDidMount(){
