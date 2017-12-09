@@ -2,13 +2,10 @@ import React, { Component } from 'react';
 import UserSearch from './UserSearch';
 import SearchResults from './SearchResults';
 import axios from 'axios';
-import '../css/App.css';
 
 class App extends Component {
-
   constructor(){
     super();
-
     this.searchUser = this.searchUser.bind(this);
 
     this.state = {
@@ -26,16 +23,12 @@ class App extends Component {
       axios.get(`https://api.instagram.com/v1/users/self/media/recent/?access_token=${instaToken}`).then((res2)=>{
         // console.log(res2.data, "TWO RESSSS");
 
-
-
         var results = res2.data.data.sort((a,b)=>{
           // console.log(a);
           // console.log(b);
           // arrrr.push( a.likes.count-b.likes.count)
           return a.likes.count-b.likes.count
-
         })
-
 
         // console.log(results, "logging arrrr");
         const user = {
@@ -43,15 +36,9 @@ class App extends Component {
           recent: results
         }
 
-
         this.setState({instaToken, user});
-
       })
     })
-
-
-
-
   }
 
   componentDidMount(){
@@ -61,7 +48,6 @@ class App extends Component {
   searchUser(user){
     this.setState({user})
   }
-
 
   render() {
     return (

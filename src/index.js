@@ -9,8 +9,6 @@ import NotFound from './components/NotFound';
 
 import registerServiceWorker from './registerServiceWorker';
 
-import './css/index.css'
-
 const Root = () => {
   return(
     <BrowserRouter>
@@ -19,10 +17,8 @@ const Root = () => {
         <Match pattern="/top/" component={App} />
         <Miss component={NotFound} />
       </div>
-
     </BrowserRouter>
   )
-
 }
 
 render(<Root/>, document.getElementById('root'));
