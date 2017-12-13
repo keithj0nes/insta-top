@@ -1,18 +1,12 @@
 import React from 'react';
-import moment from 'moment';
 
 class InstaPost extends React.Component {
-
   render(){
-
     const divStyle={
       border: "1px solid black"
     }
 
-
     const det = this.props.details;
-
-
     const timeCreated = new Date(det.created_time * 1000)//.toString();
 
     // const newTime = moment(timeCreated).format('dddd, MMM Do, YYYY');
@@ -25,12 +19,9 @@ class InstaPost extends React.Component {
         <img src={det.images.thumbnail.url} alt={det.id}/>
         <p>Likes: {det.likes.count} - Date Posted : </p>
         <p>{det.caption.text}</p>
-
       </div>
     )
   }
-
-
 }
 
 export default InstaPost;
