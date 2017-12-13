@@ -22,7 +22,7 @@ class InstaPost extends React.Component {
 
     return (
       <div className="insta-post" style={divStyle}>
-        <img src={det.images.low_resolution.url} alt={det.id}/>
+        <img src={det.images.thumbnail.url} alt={det.id}/>
         <p>Likes: {det.likes.count} - Date Posted : </p>
         <p>{det.caption.text}</p>
 
