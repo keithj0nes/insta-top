@@ -1,4 +1,5 @@
 import React from 'react';
+import moment from 'moment';
 
 class InstaPost extends React.Component {
   render(){
@@ -7,17 +8,15 @@ class InstaPost extends React.Component {
     }
 
     const det = this.props.details;
-    const timeCreated = new Date(det.created_time * 1000)//.toString();
 
-    // const newTime = moment(timeCreated).format('dddd, MMM Do, YYYY');
-    // const day = timeCreated.getDay();
-    // const mo = timeCreated.getMonth();
-    // const yr = timeCreated.getFullYear();
+    const dateCreated = moment(det.created_time*1000).format('dddd, MMM Do, YYYY');
+
+
 
     return (
       <div className="insta-post" style={divStyle}>
         <img src={det.images.thumbnail.url} alt={det.id}/>
-        <p>Likes: {det.likes.count} - Date Posted : </p>
+        <p>Likes: {det.likes.count} - Date Posted : {dateCreated}</p>
         <p>{det.caption.text}</p>
       </div>
     )

@@ -1,0 +1,31 @@
+.login-main {
+  background: blue;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+form {
+  background: green;
+  padding: 20px 40px;
+}
+
+form h1 {
+  text-align: center;
+}
+
+form a {
+  text-decoration: none;
+  padding: 15px;
+  margin: 100px 0;
+  display: block;
+  color: #f1f1f1;
+  background: red;
+  background: -webkit-linear-gradient(to left, purple, red, yellow); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(to left, purple, red, yellow); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(to left, purple, purple, yellow); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to left, purple, red, yellow); /* Standard syntax */
+
+}

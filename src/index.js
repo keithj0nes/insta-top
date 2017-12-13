@@ -9,6 +9,8 @@ import NotFound from './components/NotFound';
 
 import registerServiceWorker from './registerServiceWorker';
 
+import './index.css'; //Global styles
+
 const Root = () => {
   return(
     <BrowserRouter>
