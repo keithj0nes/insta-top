@@ -11,7 +11,8 @@
     "moment": "^2.19.3",
     "react": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^4.0.0-alpha.4"
+    "react-router": "^4.0.0-alpha.4",
+    "sass": "^1.0.0-beta.4"
   },
   "scripts": {
     "start": "react-scripts start",
