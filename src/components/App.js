@@ -3,6 +3,8 @@ import UserSearch from './UserSearch';
 import SearchResults from './SearchResults';
 import axios from 'axios';
 
+import '../css/app.css';
+
 class App extends Component {
   constructor(){
     super();

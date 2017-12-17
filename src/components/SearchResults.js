@@ -20,8 +20,8 @@ class SearchResults extends React.Component {
     } else if (Object.keys(this.props.user).length >= 1) {
       const details = this.props.user;
       return (
-        <div>
-          <img src={details.main.profile_picture} alt={details.main.full_name}/>
+        <div className="data">
+          <img className="profile" src={details.main.profile_picture} alt={details.main.full_name}/>
           <h2>{details.main.username}</h2>
 
           {this.state.order === "desc" ? this.props.user.recent.slice(0, this.state.count).map((item, index)=>{
@@ -61,16 +61,23 @@ class SearchResults extends React.Component {
     console.log(this.props.user, "SERACH RESULTS!!!!!!");
     return (
       <div className="search-results">
-        <select ref={(input) => this.results = input} onChange={this.resultCount}>
-          <option value="5">5</option>
-          <option value="10">10</option>
-          <option value="20">20</option>
-        </select>
-
-        <select ref={(input) => this.orderBy = input} onChange={this.resultOrder}>
-          <option value="desc">Top Likes</option>
-          <option value="asc">Least Likes</option>
-        </select>
+        <div className="sorting">
+          <div>
+            <h4>Results</h4>
+            <select ref={(input) => this.results = input} onChange={this.resultCount}>
+              <option value="5">5</option>
+              <option value="10">10</option>
+              <option value="20">20</option>
+            </select>
+          </div>
+          <div>
+            <h4>Order</h4>
+            <select ref={(input) => this.orderBy = input} onChange={this.resultOrder}>
+              <option value="desc">Top Likes</option>
+              <option value="asc">Least Likes</option>
+            </select>
+          </div>
+        </div>
 
         {this.renderSearch()}
       </div>
