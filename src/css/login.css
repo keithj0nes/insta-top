@@ -1,31 +1,50 @@
 .login-main {
-  background: blue;
   height: 100vh;
   width: 100vw;
   display: flex;
   justify-content: center;
   align-items: center;
+  background-image: url('https://source.unsplash.com/random');
+  background-size: cover;
 }
 
-form {
-  background: green;
-  padding: 20px 40px;
+.login-main form {
+  background: rgba(0,0,0,0.6);
+  padding: 40px;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid gray;
+  border-radius: 4px;
+
 }
 
-form h1 {
+.login-main form h1 {
+  text-shadow: 4px 4px 0px rgba(0,0,0,0.5);
+  color: white;
+  font-size: 75px;
   text-align: center;
 }
 
-form a {
+.login-main form a {
   text-decoration: none;
   padding: 15px;
-  margin: 100px 0;
-  display: block;
+  margin-top: 50px;
   color: #f1f1f1;
-  background: red;
-  background: -webkit-linear-gradient(to left, purple, red, yellow); /* For Safari 5.1 to 6.0 */
-  background: -o-linear-gradient(to left, purple, red, yellow); /* For Opera 11.1 to 12.0 */
-  background: -moz-linear-gradient(to left, purple, purple, yellow); /* For Firefox 3.6 to 15 */
-  background: linear-gradient(to left, purple, red, yellow); /* Standard syntax */
+  background: #e95950;
+  background: -webkit-linear-gradient(to right, #fccc63, #e95950, #8a3ab9); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(to right, #fccc63, #e95950, #8a3ab9); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(to right, #fccc63, #e95950, #8a3ab9); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #fccc63, #e95950, #8a3ab9); /* Standard syntax */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  border-radius: 4px;
+}
 
+.login-main form a img {
+  display: inline-block;
+  height: 40px;
+  fill: white;
+  padding-right: 10px;
 }
