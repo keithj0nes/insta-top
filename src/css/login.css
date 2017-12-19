@@ -48,3 +48,21 @@
   fill: white;
   padding-right: 10px;
 }
+
+@media screen and (max-width: 320px) {
+  .login-main form {
+    margin: 0px 10px;
+  }
+
+  .login-main form h1 {
+    font-size: 40px;
+  }
+
+  .login-main form a {
+    font-size: 12px;
+  }
+
+  .login-main form a img {
+    height: 20px;
+  }
+}
