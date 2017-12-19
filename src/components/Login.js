@@ -1,17 +1,13 @@
 import React from 'react';
 import '../css/login.css';
+
 import instaLogo from '../img/inst.png';
 
 var config = require('../config');
 
-
 class Login extends React.Component {
-
-
   render() {
-
     return (
-
       <div className="login-main" >
         <form>
           <h1>Insta-Top</h1>
