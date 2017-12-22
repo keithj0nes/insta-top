@@ -1,6 +1,8 @@
 import React from 'react';
 import axios from 'axios';
 
+import '../css/usersearch.css';
+
 class UserSearch extends React.Component {
 
 
@@ -53,11 +55,15 @@ class UserSearch extends React.Component {
   render() {
 
     return (
-      <form ref={(input)=>this.searchForm = input }className="user-search" onSubmit={this.handleSearch.bind(this)}>
-        <input ref={(input)=> this.search = input} type="text"/>
+      <div className="container">
+        <div className="search-background"></div>
 
-        <button type="submit">Search</button>
-      </form>
+        <form ref={(input)=>this.searchForm = input }className="user-search" onSubmit={this.handleSearch.bind(this)}>
+          <input ref={(input)=> this.search = input} type="text" placeholder="What's your username?" />
+
+          <button type="submit">Search</button>
+        </form>
+      </div>
     );
   }
 }

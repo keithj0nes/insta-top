@@ -3,7 +3,7 @@ import UserSearch from './UserSearch';
 import SearchResults from './SearchResults';
 import axios from 'axios';
 
-import '../css/app.css';
+import '../css/reset.css';
 
 class App extends Component {
   constructor(){
