@@ -26,10 +26,10 @@ class SearchResults extends React.Component {
 
           {this.state.order === "desc" ? this.props.user.recent.slice(0, this.state.count).map((item, index)=>{
             // console.log(this.state.order, "Top Likes");
-            return <InstaPost key={item.id} details={item} />
+            return <InstaPost key={item.id} details={item} index={index+1}/>
             }) : this.props.user.recent.reverse().slice(0, this.state.count).map((item, index)=>{
             // console.log(this.state.order, "Least Likes");
-            return <InstaPost key={item.id} details={item} />
+            return <InstaPost key={item.id} details={item} index={index+1}/>
            })}
         </div>
       )

@@ -13,7 +13,11 @@ class InstaPost extends React.Component {
 
     return (
       <div className="insta-post">
-        <img src={det.images.low_resolution.url} alt={det.id}/>
+        <div className="image-container">
+          <img src={det.images.low_resolution.url} alt={det.id}/>
+          <span className="order-index">{this.props.index}</span>
+        </div>
+
         <p className="like-count"><strong>{det.likes.count}</strong> people like this</p>
         <p className="caption">{det.caption.text}</p>
         <p className="date-created">{dateCreated}</p>
