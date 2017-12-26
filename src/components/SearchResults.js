@@ -53,7 +53,8 @@ class SearchResults extends React.Component {
   }
 
   componentDidUpdate(){
-    console.log(this.state.order);
+    console.log(this.state.order, "componentDidUpdate");
+    this.renderSearch();
   }
 
 

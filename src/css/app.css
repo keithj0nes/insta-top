@@ -5,22 +5,7 @@
 
 
 
-/*UserSearch Component*/
 
-.user-search input, .user-search button {
-  width: 100%;
-  padding: 10px;
-  font-size: 16px;
-}
-
-.user-search input {
-  border: 1px solid black;
-}
-
-.user-search button {
-  background: #f4f4f4;
-  margin-top: 10px;
-}
 
 
 
