@@ -25,10 +25,10 @@
 
 
 
-/*SearchResults Componen*/
+/*SearchResults Component*/
 
 .search-results {
-  background: pink;
+  /*background: pink;*/
 }
 
 .search-results .sorting {
@@ -69,8 +69,13 @@
 .search-results .data .profile {
   display: block;
   margin: 0 auto;
+  /*height: 200px;*/
+  /*width: 200px;*/
+  border-radius: 50%;
+  border: 1px solid #ddd;
 }
 
 .search-results .data h2 {
   text-align: center;
+  font-size: 28px;
 }
