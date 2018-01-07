@@ -4,7 +4,6 @@ import SearchResults from './SearchResults';
 import axios from 'axios';
 
 import '../css/reset.css';
-import '../css/app.css';
 
 
 class App extends Component {

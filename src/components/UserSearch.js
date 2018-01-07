@@ -53,18 +53,13 @@ class UserSearch extends React.Component {
   }
 
   render() {
-
     return (
-      <div className="container">
-        <div className="search-background">
-
+      <div className="search-container">
         <form ref={(input)=>this.searchForm = input }className="user-search" onSubmit={this.handleSearch.bind(this)}>
-          <input ref={(input)=> this.search = input} type="text" placeholder="What's your username?" />
+          <input ref={(input)=> this.search = input} type="text" placeholder="Enter username" />
 
           <button type="submit">Search</button>
         </form>
-
-        </div>
       </div>
     );
   }

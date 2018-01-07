@@ -1,55 +1,49 @@
-.container {
-  /*width: 50vw;*/
-}
-
-/*.search-background {
-  position: relative;
-  background-image: url('https://source.unsplash.com/random');
+.search-container {
+  background:linear-gradient(0deg,rgba(0,0,0,0.3),rgba(0,0,0,0.3)),url('https://source.unsplash.com/random');
   background-size: cover;
   background-position: center;
   height: 300px;
-  width: 100%;
-}*/
+}
 
-.user-search input, .user-search button {
+.search-container form {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  font-size: 16px;
+  margin: 0 auto;
+  padding: 50px;
+  height: 100%;
+  max-width: 1040px;
+}
+
+.search-container form input {
+  font-family: 'Open Sans', sans-serif;
+  text-transform: uppercase;
+  background-color: #f1f1f1;
+  border: none;
   padding: 10px;
-  width: 100%;
+  outline: none;
 }
 
-/*.user-search input {
-  position: absolute;
-  top: 200px;
-  border: 1px solid black;
-  margin: 5px;
-}
-
-.user-search button {
-  position: absolute;
-  top: 275px;
-  background: #f4f4f4;
-  margin-top: 10px;
-}*/
-
-
-
-
-/*UserSearch Component*/
-
-/*.user-search input, .user-search button {
-  width: 100%;
+.search-container form button {
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.5em;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: #fff;
+  background: #e95950;
+  background: -webkit-linear-gradient(to right, #fccc63, #e95950, #8a3ab9); /* For Safari 5.1 to 6.0 */
+  background: -o-linear-gradient(to right, #fccc63, #e95950, #8a3ab9); /* For Opera 11.1 to 12.0 */
+  background: -moz-linear-gradient(to right, #fccc63, #e95950, #8a3ab9); /* For Firefox 3.6 to 15 */
+  background: linear-gradient(to right, #fccc63, #e95950, #8a3ab9); /* Standard syntax */
+  margin-top: 20px;
+  border: none;
+  border-radius: 4px;
   padding: 10px;
-  font-size: 16px;
+  outline: none;
 }
 
-.user-search input {
-  border: 1px solid black;
+@media only screen and (min-width: 768px) {
+  .search-container {
+    height: 500px;
+  }
 }
-
-.user-search button {
-  background: #f4f4f4;
-  margin-top: 10px;
-}*/
