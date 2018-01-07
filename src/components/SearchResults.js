@@ -1,6 +1,8 @@
 import React from 'react';
 import InstaPost from './InstaPost';
 
+import '../css/searchresults.css';
+
 class SearchResults extends React.Component {
   constructor(){
     super();
@@ -21,8 +23,10 @@ class SearchResults extends React.Component {
       const details = this.props.user;
       return (
         <div className="data">
-          <img className="profile" src={details.main.profile_picture} alt={details.main.full_name}/>
-          <h2>{details.main.username}</h2>
+          <div className="user-details">
+            <img src={details.main.profile_picture} alt={details.main.full_name} />
+            <h2>{details.main.username}</h2>
+          </div>
 
           {this.state.order === "desc" ? this.props.user.recent.slice(0, this.state.count).map((item, index)=>{
             // console.log(this.state.order, "Top Likes");
@@ -40,40 +44,36 @@ class SearchResults extends React.Component {
 
   resultCount(e){
     e.preventDefault();
-    console.log(this.results.value);
     const count = this.results.value;
     this.setState({count});
   }
 
   resultOrder(e){
     e.preventDefault();
-    console.log(this.orderBy.value);
     const order = this.orderBy.value;
     this.setState({order})
   }
 
   componentDidUpdate(){
-    console.log(this.state.order, "componentDidUpdate");
     this.renderSearch();
   }
 
 
   render() {
-    console.log(this.props.user, "SERACH RESULTS!!!!!!");
     return (
       <div className="search-results">
         <div className="sorting">
-          <div>
-            <h4>Results</h4>
+          <div className="results">
             <select ref={(input) => this.results = input} onChange={this.resultCount}>
+              <option value="hide">-- Results --</option>
               <option value="5">5</option>
               <option value="10">10</option>
               <option value="20">20</option>
             </select>
           </div>
-          <div>
-            <h4>Order</h4>
+          <div className="order">
             <select ref={(input) => this.orderBy = input} onChange={this.resultOrder}>
+              <option value="hide">-- Order --</option>
               <option value="desc">Top Likes</option>
               <option value="asc">Least Likes</option>
             </select>
