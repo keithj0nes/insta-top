@@ -50,7 +50,7 @@
   padding-right: 10px;
 }
 
-@media screen and (max-width: 320px) {
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
   .login-main form {
     margin: 0px 10px;
   }
